@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const { PORT } = require('./config/serverConfig');
 const apiRoutes = require('./routes/index');
-const UserService = require('./services/user-service');
+// const UserService = require('./services/user-service');
 // const UserRepository=require('././repository/user-repository')
 // const {User} = require('./models/index');
 // const bcrypt = require('bcrypt');
@@ -31,12 +31,12 @@ const prepareAndStartServer = () => {
         // const response = bcrypt.compareSync(incomingpassword, user.password);
         // console.log(response);
 
-        const service = new UserService();
-        const newToken = service.createToken({email: 'abcd@gmail.com', id: 1});
-        console.log("new token is", newToken);
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc4MDgzMzE4NywiZXhwIjoxNzgwOTE5NTg3fQ.UhkUqWTM3a0u0wnNhrkkUiNB4ZkeqNHRwtq03PVvjho';
-        const response = service.verifyToken(token);
-        console.log(response);
+        // const service = new UserService();
+        // const newToken = service.createToken({email: 'abcd@gmail.com', id: 1});
+        // console.log("new token is", newToken);
+        // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiY2RAZ21haWwuY29tIiwiaWQiOjEsImlhdCI6MTc4MDgzMzE4NywiZXhwIjoxNzgwOTE5NTg3fQ.UhkUqWTM3a0u0wnNhrkkUiNB4ZkeqNHRwtq03PVvjho';
+        // const response = service.verifyToken(token);
+        // console.log(response);
 
 });
 }   
