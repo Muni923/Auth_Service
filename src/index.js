@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 const { PORT } = require('./config/serverConfig');
 const apiRoutes = require('./routes/index');
+const db = require('./models/index');
 // const UserService = require('./services/user-service');
 // const UserRepository=require('././repository/user-repository')
 // const {User} = require('./models/index');
@@ -20,7 +21,9 @@ const prepareAndStartServer = () => {
 
     app.listen(PORT, async () => {
     console.log(`Server Started on Port: ${PORT}`);
-
+    if(process.env.DB_SYNC) {
+            db.sequelize.sync({alter: true});
+        }
         // const repo = new UserRepository();
         // const response = await repo.getById(2);
         // console.log(response); 
