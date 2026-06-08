@@ -6,7 +6,7 @@ const apiRoutes = require('./routes/index');
 const db = require('./models/index');
 // const UserService = require('./services/user-service');
 // const UserRepository=require('././repository/user-repository')
-// const {User} = require('./models/index');
+const {User,Role} = require('./models/index');
 // const bcrypt = require('bcrypt');
 
 const app = express();
@@ -24,6 +24,12 @@ const prepareAndStartServer = () => {
     if(process.env.DB_SYNC) {
             db.sequelize.sync({alter: true});
         }
+         
+        // to add roles to user and vice versa:
+        // const u1 = await User.findByPk(3);
+        // const r1 = await Role.findByPk(1);
+        // await u1.addRole(r1);
+
         // const repo = new UserRepository();
         // const response = await repo.getById(2);
         // console.log(response); 
